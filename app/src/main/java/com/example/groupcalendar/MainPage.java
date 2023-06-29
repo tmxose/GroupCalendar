@@ -7,4 +7,6 @@ public class MainPage {
     // 여기에 이름 입력 1
     String name = "Hyeokju";
     // 여기 이름 입력 2
+    String member2 = "heo";
+    String name2 = "seongwook";
 }
