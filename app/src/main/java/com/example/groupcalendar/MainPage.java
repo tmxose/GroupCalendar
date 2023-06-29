@@ -1,6 +1,7 @@
 package com.example.groupcalendar;
 
 public class MainPage {
-    git remote add origin <https://github.com/tmxose/GroupCalendar>
-
+    // 첫 공유 테스트
+    int test = 'T';
+    String member = "shin";
 }
