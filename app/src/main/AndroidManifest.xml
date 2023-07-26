@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.groupcalendar">
-
-    <application>
-        android:allowBackup="true"
+    <application
+        android:name=".MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GroupCalendar"
-    <activity android:name=".MainPage"></activity>
+        android:fullBackupContent="@xml/backup_config"
+        android:allowBackup="true">
+        <!-- 기타 애플리케이션 설정 -->
     </application>
+
 
 </manifest>
