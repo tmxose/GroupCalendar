@@ -1,53 +1,65 @@
 package com.example.groupcalendar;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import java.util.Calendar;
+import androidx.annotation.Nullable;
+
+import com.github.sundeepk.compactcalendarview.CompactCalendarView;
+import com.github.sundeepk.compactcalendarview.domain.Event;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 public class CustomCalendarView extends LinearLayout {
+    private TextView monthTextView;
+    private CompactCalendarView compactCalendarView;
 
-    // Calendar 객체
-    private Calendar calendar;
-
-    // 생성자
     public CustomCalendarView(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public CustomCalendarView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
-    public CustomCalendarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    private void init(Context context) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        inflater.inflate(R.layout.custom_calendar_view, this);
+
+        monthTextView = findViewById(R.id.monthTextView);
+        compactCalendarView = findViewById(R.id.compactCalendarView);
+
+        compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
+            @Override
+            public void onDayClick(Date dateClicked) {
+                // 날짜를 클릭했을 때의 동작 처리
+            }
+
+            @Override
+            public void onMonthScroll(Date firstDayOfNewMonth) {
+                SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());
+                monthTextView.setText(sdf.format(firstDayOfNewMonth));
+            }
+        });
     }
 
-    // 초기화 메서드
-    private void init() {
-        // 현재 날짜를 기준으로 Calendar 객체 생성
-        calendar = Calendar.getInstance();
-
-        // 캘린더 뷰를 표시하는 메서드 호출
-        showCalendar();
+    public void addPersonalEvents(List<Event> events) {
+        for (Event event : events) {
+            compactCalendarView.addEvent(new com.github.sundeepk.compactcalendarview.domain.Event(event.getColor(), event.getTimeInMillis()));
+        }
     }
 
-    // 캘린더를 표시하는 메서드
-    private void showCalendar() {
-        // 현재 년도와 월을 가져옴
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-
-        // 캘린더를 표시하는 로직을 구현
-        // 이 부분에서 실제 캘린더를 표시하는 로직을 구현합니다.
-        // 캘린더를 구현하는 방식에 따라 다양한 방법으로 표시할 수 있습니다.
-        // 예를 들어, GridView나 RecyclerView를 사용하여 날짜를 표시하는 등의 방법이 있습니다.
-
-        // 캘린더 뷰를 갱신하는 코드 추가
-        invalidate();
+    public void addGroupEvents(List<Event> events) {
+        for (Event event : events) {
+            compactCalendarView.addEvent(new com.github.sundeepk.compactcalendarview.domain.Event(event.getColor(), event.getTimeInMillis()));
+        }
     }
 }
-

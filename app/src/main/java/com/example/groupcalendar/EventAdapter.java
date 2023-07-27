@@ -8,31 +8,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.groupcalendar.model.Event;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
     private List<Event> events;
 
-    public EventAdapter(List<Event> events) {
+    public EventAdapter(List<com.github.sundeepk.compactcalendarview.domain.Event> personalEventsList) {
         this.events = events;
     }
 
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event, parent, false);
-        return new EventViewHolder(view);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event, parent, false);
+        return new EventViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         Event event = events.get(position);
-        holder.titleTextView.setText(event.getEventData().getTitle());
-        holder.descriptionTextView.setText(event.getEventData().getDescription());
+        holder.titleTextView.setText(event.getTitle());
+        holder.descriptionTextView.setText(event.getDescription());
     }
 
     @Override
@@ -40,16 +37,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         return events.size();
     }
 
-    public void addEvent(Event event) {
-        events.add(event);
-        notifyDataSetChanged();
-    }
-
     public static class EventViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView;
-        TextView descriptionTextView;
+        public TextView titleTextView;
+        public TextView descriptionTextView;
 
-        public EventViewHolder(@NonNull View itemView) {
+        public EventViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.titleTextView);
             descriptionTextView = itemView.findViewById(R.id.descriptionTextView);
