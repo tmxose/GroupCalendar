@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        customCalendarView = findViewById(R.id.customCalendarView);
 
         // Personal 이벤트와 Group 이벤트를 저장할 목록 초기화
         personalEventsList = new ArrayList<>();

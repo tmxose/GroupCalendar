@@ -6,60 +6,101 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class CustomCalendarView extends LinearLayout {
-    private TextView monthTextView;
     private CompactCalendarView compactCalendarView;
+    private TextView monthTitleTextView;
+    private List<Event> personalEventsList = new ArrayList<>();
+    private List<Event> groupEventsList = new ArrayList<>();
 
     public CustomCalendarView(Context context) {
         super(context);
         init(context);
     }
 
-    public CustomCalendarView(Context context, @Nullable AttributeSet attrs) {
+    public CustomCalendarView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
+    public CustomCalendarView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context);
+    }
+
     private void init(Context context) {
-        LayoutInflater inflater = LayoutInflater.from(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.custom_calendar_view, this);
 
-        monthTextView = findViewById(R.id.monthTextView);
         compactCalendarView = findViewById(R.id.compactCalendarView);
+        monthTitleTextView = findViewById(R.id.monthTextView);
 
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
-                // 날짜를 클릭했을 때의 동작 처리
+                // 날짜를 클릭했을 때 처리하는 코드 추가
             }
 
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
-                SimpleDateFormat sdf = new SimpleDateFormat("MMMM yyyy", Locale.getDefault());
-                monthTextView.setText(sdf.format(firstDayOfNewMonth));
+                updateMonthTitle(firstDayOfNewMonth);
             }
         });
+
+        updateMonthTitle(compactCalendarView.getFirstDayOfCurrentMonth());
+    }
+
+    private void updateMonthTitle(Date date) {
+        // 월의 타이틀을 업데이트하는 코드 추가
+    }
+
+    public void addPersonalEvent(Event event) {
+        personalEventsList.add(event);
+        compactCalendarView.addEvent(event);
+    }
+
+    public void addGroupEvent(Event event) {
+        groupEventsList.add(event);
+        compactCalendarView.addEvent(event);
+    }
+
+    public void removePersonalEvent(Event event) {
+        personalEventsList.remove(event);
+        compactCalendarView.removeEvent(event);
+    }
+
+    public void removeGroupEvent(Event event) {
+        groupEventsList.remove(event);
+        compactCalendarView.removeEvent(event);
     }
 
     public void addPersonalEvents(List<Event> events) {
-        for (Event event : events) {
-            compactCalendarView.addEvent(new com.github.sundeepk.compactcalendarview.domain.Event(event.getColor(), event.getTimeInMillis()));
-        }
+        personalEventsList.addAll(events);
+        compactCalendarView.addEvents(events);
     }
 
     public void addGroupEvents(List<Event> events) {
-        for (Event event : events) {
-            compactCalendarView.addEvent(new com.github.sundeepk.compactcalendarview.domain.Event(event.getColor(), event.getTimeInMillis()));
-        }
+        groupEventsList.addAll(events);
+        compactCalendarView.addEvents(events);
+    }
+
+    public void removePersonalEvents(List<Event> events) {
+        personalEventsList.removeAll(events);
+        compactCalendarView.removeEvents(events);
+    }
+
+    public void removeGroupEvents(List<Event> events) {
+        groupEventsList.removeAll(events);
+        compactCalendarView.removeEvents(events);
+    }
+
+    public void setListener(CompactCalendarView.CompactCalendarViewListener listener) {
+        compactCalendarView.setListener(listener);
     }
 }

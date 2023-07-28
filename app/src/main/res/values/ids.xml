@@ -2,4 +2,5 @@
 <resources>
     <item name="personalCheckBox" type="id" />
     <item name="addEventButton" type="id" />
+    <item name="titleTextView" type="id" />
 </resources>
