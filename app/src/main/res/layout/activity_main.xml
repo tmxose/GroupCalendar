@@ -1,40 +1,41 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Title -->
     <TextView
-        android:id="@+id/monthTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:text="Group Calendar App"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
 
-    <com.github.sundeepk.compactcalendarview.CompactCalendarView
-        android:id="@+id/compactCalendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/monthTextView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/compactCalendarView"
-        android:layout_marginTop="16dp"/>
-
+    <!-- Default Calendar Button -->
     <Button
-        android:id="@+id/addEventButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/defaultCalendarButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add Event"
-        android:layout_below="@id/eventRecyclerView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:text="Select Default Calendar"
+        android:layout_marginBottom="16dp"/>
 
-</RelativeLayout>
+    <!-- Group/Personal Calendar Button -->
+    <Button
+        android:id="@+id/groupCalendarButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Group/Personal Calendar"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Settings Button -->
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"/>
+
+</LinearLayout>
