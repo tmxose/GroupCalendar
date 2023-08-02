@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.groupcalendar">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +10,28 @@
         android:fullBackupContent="@xml/backup_config"
         android:allowBackup="true">
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="Main Activity"
+            android:exported="true"> <!-- Launcher 액티비티로 설정 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".CalendarViewActivity"
+            android:label="CalendarViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DefaultCalendarActivity"
+            android:label="DefaultCalendarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="SettingsActivity"
+            android:exported="false" />
 
 
     </application>
