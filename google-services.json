@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "150472522801",
+    "project_id": "groupcalendarts",
+    "storage_bucket": "groupcalendarts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150472522801:android:5d3a013e590645ce046910",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150472522801-6c2me33chib7ren53rfl6nj6qs1og7d4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFpk84VMtJngVdsX4WF8q-8ND2-P8ov20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150472522801-6c2me33chib7ren53rfl6nj6qs1og7d4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
