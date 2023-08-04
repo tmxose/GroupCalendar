@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+<include domain="file" path="database/" />
+<include domain="file" path="shared_prefs/" />
+<!-- 기타 백업하려는 파일 또는 디렉토리를 추가합니다 -->
+</full-backup-content>
