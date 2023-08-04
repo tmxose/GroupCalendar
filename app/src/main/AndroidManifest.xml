@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_config"
@@ -11,7 +11,7 @@
         android:theme="@style/Theme.GroupCalendar">
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:label="Main Activity"> <!-- Launcher 액티비티로 설정 -->
             <intent-filter>
@@ -21,7 +21,8 @@
         </activity>
 
         <activity
-            android:name=".CalendarViewActivity"
+            android:name=".ui.CalendarViewActivity"
+            android:label="그룹/개인 캘린더 선택 페이지"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.groupcalendar.ACTION_CALENDAR_VIEW" />
@@ -30,7 +31,8 @@
         </activity>
 
         <activity
-            android:name=".DefaultCalendarActivity"
+            android:name=".ui.DefaultCalendarActivity"
+            android:label="기본 캘린더 선택 페이지"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.groupcalendar.ACTION_DEFAULT_CALENDAR" />
@@ -39,7 +41,8 @@
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui.SettingsActivity"
+            android:label="설정 페이지"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.groupcalendar.ACTION_SETTINGS" />
