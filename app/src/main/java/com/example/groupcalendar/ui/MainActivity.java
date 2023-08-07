@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void createGroup() {
         // 그룹 생성 시 호출될 메서드
-        // 예시로 임시 그룹 이름을 "테스트 그룹"으로 지정하겠습니다.
         groupManager.createGroup("테스트 그룹");
     }
 }
