@@ -1,14 +1,10 @@
-package com.example.groupcalendar.ui;
+package com.example.groupcalendar;
 
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.groupcalendar.R;
-
 public class DefaultCalendarActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
