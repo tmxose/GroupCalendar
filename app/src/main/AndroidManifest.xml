@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.groupcalendar">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_config"
@@ -10,55 +13,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GroupCalendar">
 
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:label="Main Activity"> <!-- Launcher 액티비티로 설정 -->
+        <!-- LoginActivity를 앱의 시작 화면으로 설정 -->
+        <activity android:name=".LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.CalendarViewActivity"
-            android:label="그룹/개인 캘린더 선택 페이지"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.groupcalendar.ACTION_CALENDAR_VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- MainActivity -->
+        <activity android:name=".MainActivity" />
 
-        <activity
-            android:name=".ui.DefaultCalendarActivity"
-            android:label="기본 캘린더 선택 페이지"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.groupcalendar.ACTION_DEFAULT_CALENDAR" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- DefaultCalendarActivity -->
+        <activity android:name=".DefaultCalendarActivity" />
 
-        <activity
-            android:name=".ui.SettingsActivity"
-            android:label="설정 페이지"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.groupcalendar.ACTION_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- CalendarViewActivity -->
+        <activity android:name=".CalendarViewActivity" />
 
-        <activity
-            android:name=".ui.GroupCalendarActivity"
-            android:label="그룹 캘린더 페이지"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.example.groupcalendar.ACTION_GROUP_CALENDAR" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+        <!-- SettingsActivity -->
+        <activity android:name=".SettingsActivity" />
 
     </application>
 

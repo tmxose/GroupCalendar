@@ -10,5 +10,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:text="Hello, this is Default Calendar Activity!"></TextView>
+        android:text="기본 캘린더 액티비티"></TextView>
 </LinearLayout>
